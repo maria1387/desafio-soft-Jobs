@@ -20,6 +20,7 @@ const createLogin = async (req, res) => {
     await userLogin(email, password);
     const token = jwt.sign({ email }, process.env.SECRET_KEY);
     res.send(token);
+    
   } catch (error) {
     console.log(error);
     res.status(error.code || 500).send(error);
